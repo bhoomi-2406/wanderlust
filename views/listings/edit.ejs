@@ -1,0 +1,245 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+
+    <form method = "POST" action = "/listings/<%= listing._id %>?_method=PUT" enctype="multipart/form-data" class = "needs-validation">
+        <h3>Edit your listing</h3>
+        <div class = "mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name = "listing[title]" value= "<%= listing.title %>" type = "text" class = "form-control" required>
+        </div>
+
+<div class = "mb-3">
+     <label for="description" class="form-label">description</label>
+<textarea name = "listing[description]"  class="form-control" required ><%= listing.description %></textarea>
+<div class="invalid-feedback">
+      Please enter a short description
+    </div>
+</div>
+<div class = "mb-3">
+    Original Listing Image <br />
+    <img src ="<%= originalImageUrl%>"
+    class="img-thumbnail"
+    style="width: 250px; height: 200px; object-fit: cover;" />
+</div>
+
+<div class = "mb-3">
+     <label for="image" class="form-label">Upload New Image </label>
+<input
+  name="listing[image]"
+  type="file"
+  class="form-control">
+</div>
+<div class="row">
+
+    <div class="mb-3 col-md-3">
+        <label for="price" class="form-label">Price (per night)</label>
+
+        <input
+            name="listing[price]"
+            value="<%= listing.price %>"
+            type="number"
+            class="form-control"
+            required
+        >
+
+        <div class="invalid-feedback">
+            Please enter price.
+        </div>
+    </div>
+
+    <div class="mb-3 col-md-3">
+        <label for="maxGuests" class="form-label">
+            Maximum Guests
+        </label>
+
+        <input
+            name="listing[maxGuests]"
+            value="<%= listing.maxGuests %>"
+            type="number"
+            class="form-control"
+            min="1"
+            required
+        >
+    </div>
+    <!-- Amenities -->
+<div class="mb-4">
+    <label class="form-label fw-bold">Amenities</label>
+
+    <div class="row">
+
+        <% const amenitiesList = [
+            "WiFi",
+            "Kitchen",
+            "Parking",
+            "Pool",
+            "Air Conditioning",
+            "Breakfast",
+            "Fireplace",
+            "Pet Friendly"
+        ]; %>
+
+        <% amenitiesList.forEach((amenity) => { %>
+
+            <div class="col-md-4 mb-2">
+
+                <div class="form-check">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="<%= amenity.replace(/\s+/g,'') %>"
+                        name="listing[amenities][]"
+                        value="<%= amenity %>"
+                        <%= listing.amenities && listing.amenities.includes(amenity) ? "checked" : "" %>
+                    >
+
+                    <label
+                        class="form-check-label"
+                        for="<%= amenity.replace(/\s+/g,'') %>"
+                    >
+                        <%= amenity %>
+                    </label>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+</div>
+
+<!-- Featured Listing -->
+<div class="form-check mb-4">
+
+    <input
+        class="form-check-input"
+        type="checkbox"
+        id="featured"
+        name="listing[featured]"
+        value="true"
+        <%= listing.featured ? "checked" : "" %>
+    >
+
+    <label
+        class="form-check-label fw-bold"
+        for="featured"
+    >
+        Mark as Featured Listing
+    </label>
+
+</div>
+    
+
+    <div class="mb-3 col-md-3">
+        <label for="bedrooms" class="form-label">
+            Bedrooms
+        </label>
+
+        <input
+            name="listing[bedrooms]"
+            value="<%= listing.bedrooms %>"
+            type="number"
+            class="form-control"
+            min="1"
+            required
+        >
+    </div>
+
+    <div class="mb-3 col-md-3">
+        <label for="bathrooms" class="form-label">
+            Bathrooms
+        </label>
+
+        <input
+            name="listing[bathrooms]"
+            value="<%= listing.bathrooms %>"
+            type="number"
+            class="form-control"
+            min="1"
+            required
+        >
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="mb-3 col-md-6">
+        <label for="country" class="form-label">
+            Country
+        </label>
+
+        <input
+            name="listing[country]"
+            value="<%= listing.country %>"
+            type="text"
+            class="form-control"
+            required
+        >
+
+        <div class="invalid-feedback">
+            Please enter country name.
+        </div>
+    </div>
+
+    <div class="mb-3 col-md-6">
+        <label for="location" class="form-label">
+            Location
+        </label>
+
+        <input
+            name="listing[location]"
+            value="<%= listing.location %>"
+            type="text"
+            class="form-control"
+            required
+        >
+
+        <div class="invalid-feedback">
+            Please enter location name.
+        </div>
+    </div>
+
+</div>
+
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select
+        name="listing[category]"
+        id="category"
+        class="form-select"
+        required
+    >
+        <option value="Trending" <%= listing.category === "Trending" ? "selected" : "" %>>Trending</option>
+
+        <option value="Iconic Cities" <%= listing.category === "Iconic Cities" ? "selected" : "" %>>Iconic Cities</option>
+
+        <option value="Mountains" <%= listing.category === "Mountains" ? "selected" : "" %>>Mountains</option>
+
+        <option value="Castles" <%= listing.category === "Castles" ? "selected" : "" %>>Castles</option>
+
+        <option value="Arctic" <%= listing.category === "Arctic" ? "selected" : "" %>>Arctic</option>
+
+        <option value="Camping" <%= listing.category === "Camping" ? "selected" : "" %>>Camping</option>
+
+        <option value="Farms" <%= listing.category === "Farms" ? "selected" : "" %>>Farms</option>
+
+        <option value="Amazing Pools" <%= listing.category === "Amazing Pools" ? "selected" : "" %>>Amazing Pools</option>
+
+        <option value="Beach" <%= listing.category === "Beach" ? "selected" : "" %>>Beach</option>
+
+        <option value="Forest" <%= listing.category === "Forest" ? "selected" : "" %>>Forest</option>
+
+        <option value="Historic" <%= listing.category === "Historic" ? "selected" : "" %>>Historic</option>
+    </select>
+</div>
+
+
+<button class ="btn btn-dark edit-btn mt-3">Submit</button>
+    </form>
+    </div>
+
+</div>
+ 

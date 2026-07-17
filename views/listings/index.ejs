@@ -1,0 +1,449 @@
+<% layout("/layouts/boilerplate") %>
+<%= success %>
+<body>
+    <style>
+ #filters{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter{
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+    text-decoration: none;
+    color: black;
+}
+
+.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+    color: black;
+}
+
+.filter p{
+    font-size: 0.8rem;
+}
+.listing-img-container{
+    position: relative;
+}
+
+.wishlist-form{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+}
+
+.wishlist-btn{
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.wishlist-btn:hover{
+    transform: scale(1.1);
+}
+
+.wishlist-btn i{
+    color:#e31c5f;
+}
+.card-body{
+    color: #222222;
+}
+
+.card-body p{
+    color: #222222;
+}
+</style>
+    <div id = "filters">
+        <a href="/listings" class="filter">
+    <div><i class="fa-solid fa-fire"></i></div>
+    <p>Trending</p>
+</a>
+
+    <a href="/listings?category=Iconic Cities" class="filter">
+        <div><i class="fa-solid fa-city"></i></div>
+        <p>Iconic Cities</p>
+    </a>
+
+    <a href="/listings?category=Mountains" class="filter">
+        <div><i class="fa-solid fa-mountain"></i></div>
+        <p>Mountains</p>
+    </a>
+
+    <a href="/listings?category=Castles" class="filter">
+        <div><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+    </a>
+
+    <a href="/listings?category=Arctic" class="filter">
+        <div><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+    </a>
+
+    <a href="/listings?category=Camping" class="filter">
+        <div><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+    </a>
+
+    <a href="/listings?category=Farms" class="filter">
+        <div><i class="fa-solid fa-wheat-awn"></i></div>
+        <p>Farms</p>
+    </a>
+
+    <a href="/listings?category=Amazing Pools" class="filter">
+        <div><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools</p>
+    </a>
+
+    <a href="/listings?category=Beach" class="filter">
+        <div><i class="fa-solid fa-umbrella-beach"></i></div>
+        <p>Beach</p>
+    </a>
+
+    <a href="/listings?category=Forest" class="filter">
+        <div><i class="fa-solid fa-tree"></i></div>
+        <p>Forest</p>
+    </a>
+
+    <a href="/listings?category=Historic" class="filter">
+        <div><i class="fa-solid fa-landmark"></i></div>
+        <p>Historic</p>
+    </a>
+
+
+    </div>
+
+<% if (!searchQuery && !selectedCategory && !selectedPrice && featuredListings.length > 0) { %>
+
+<div class="mt-4 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+            <h2 class="fw-bold mb-1">
+                ⭐ Featured Destinations
+            </h2>
+
+            <p class="text-muted mb-0">
+                Hand-picked places you'll love.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+        <% for(let listing of featuredListings){ %>
+
+        <div class="col">
+
+            <div class="card listing-card">
+
+                <div class="listing-img-container">
+
+                    <span class="badge bg-warning text-dark position-absolute m-3" style="z-index:10;">
+                        Featured
+                    </span>
+
+                    <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                        <img
+                            src="<%= listing.image.url %>"
+                            class="card-img-top"
+                            style="height:20rem;"
+                        >
+
+                    </a>
+
+                </div>
+
+                <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                    <div class="card-body">
+
+                        <b><%= listing.title %></b>
+
+                        <br>
+
+                        <%= listing.location %>, <%= listing.country %>
+
+                        <br>
+
+                        ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <% } %>
+
+    </div>
+
+</div>
+
+<% } %>
+<% if (!searchQuery && !selectedCategory && !selectedPrice && budgetListings.length > 0) { %>
+
+<div class="mt-5 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                💰 Budget Friendly
+            </h2>
+
+            <p class="text-muted mb-0">
+                Amazing stays at affordable prices.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+        <% for(let listing of budgetListings){ %>
+
+        <div class="col">
+
+            <div class="card listing-card">
+
+                <div class="listing-img-container">
+
+                    <span
+                        class="badge bg-success position-absolute m-3"
+                        style="z-index:10;"
+                    >
+                        Budget Pick
+                    </span>
+
+                    <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                        <img
+                            src="<%= listing.image.url %>"
+                            class="card-img-top"
+                            style="height:20rem;"
+                        >
+
+                    </a>
+
+                </div>
+
+                <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                    <div class="card-body">
+
+                        <b><%= listing.title %></b>
+
+                        <br>
+
+                        <%= listing.location %>, <%= listing.country %>
+
+                        <br>
+
+                        ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <% } %>
+
+    </div>
+
+</div>
+
+<% } %>
+<% if (!searchQuery && !selectedCategory && !selectedPrice && luxuryListings.length > 0) { %>
+
+<div class="mt-5 mb-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                ✨ Luxury Escapes
+            </h2>
+
+            <p class="text-muted mb-0">
+                Premium stays for unforgettable experiences.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+        <% for(let listing of luxuryListings){ %>
+
+        <div class="col">
+
+            <div class="card listing-card">
+
+                <div class="listing-img-container">
+
+                    <span
+                        class="badge bg-dark position-absolute m-3"
+                        style="z-index:10;"
+                    >
+                        Luxury
+                    </span>
+
+                    <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                        <img
+                            src="<%= listing.image.url %>"
+                            class="card-img-top"
+                            style="height:20rem;"
+                        >
+
+                    </a>
+
+                </div>
+
+                <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                    <div class="card-body">
+
+                        <b><%= listing.title %></b>
+
+                        <br>
+
+                        <%= listing.location %>, <%= listing.country %>
+
+                        <br>
+
+                        ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <% } %>
+
+    </div>
+
+</div>
+
+<% } %>
+
+
+    <% if (searchQuery && allListings.length > 0) { %>
+    <div class="alert alert-success text-center mt-3">
+        Showing <b><%= allListings.length %></b> result(s) for
+        "<b><%= searchQuery %></b>"
+    </div>
+<% } %>
+
+    <% if (searchQuery && allListings.length === 0) { %>
+    <div class="alert alert-warning text-center mt-3">
+        <h5>No listings found for "<%= searchQuery %>"</h5>
+    </div>
+<% } %>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+<% for(let listing of allListings){ %>
+
+<div class="col">
+
+    <div class="card listing-card">
+
+        <div class="listing-img-container">
+
+            <a href="/listings/<%= listing._id %>" class="listing-links">
+
+                <img
+                    src="<%= listing.image.url %>"
+                    class="card-img-top"
+                    alt="listing_image"
+                    style="height:20rem;"
+                >
+
+            </a>
+
+            <% if(currUser){ %>
+
+                <% if(wishlistedIds.includes(listing._id.toString())){ %>
+
+                    <form
+                        action="/listings/<%= listing._id %>/wishlist?_method=DELETE"
+                        method="POST"
+                        class="wishlist-form">
+
+                        <button class="wishlist-btn">
+
+                            <i class="fa-solid fa-heart"></i>
+
+                        </button>
+
+                    </form>
+
+                <% } else { %>
+
+                    <form
+                        action="/listings/<%= listing._id %>/wishlist"
+                        method="POST"
+                        class="wishlist-form">
+
+                        <button class="wishlist-btn">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </form>
+
+                <% } %>
+
+            <% } %>
+
+        </div>
+
+        <a href="/listings/<%= listing._id %>" class="listing-links">
+
+            <div class="card-body">
+
+                <b><%= listing.title %></b>
+
+                <br>
+
+                ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+
+            </div>
+
+        </a>
+
+    </div>
+
+</div>
+
+<% } %>
+    </div>
+ 
+
+
+</body>

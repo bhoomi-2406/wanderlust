@@ -1,0 +1,212 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/aiPlanner.css">
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="display-5 fw-bold">
+            ✨ AI Trip Planner
+        </h1>
+
+        <p class="text-muted fs-5">
+            Plan your perfect vacation with AI assistance.
+        </p>
+
+    </div>
+
+    <div class="card shadow-lg border-0 ai-card">
+
+        <form action="/trip-planner" method="POST">
+            <% if (listing) { %>
+
+<input
+    type="hidden"
+    name="listingId"
+    value="<%= listing._id %>">
+
+<% } %>
+
+            <div class="mb-3">
+
+    <label class="form-label">
+
+        Destination
+
+    </label>
+
+    <input
+        type="text"
+        class="form-control"
+        name="destination"
+        value="<%= listing ? listing.location : '' %>"
+        required
+    >
+
+</div>
+<% if (listing) { %>
+
+<div class="alert alert-info">
+
+    <strong>Selected Stay:</strong>
+
+    <%= listing.title %>
+
+</div>
+
+<% } %>
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Days
+                    </label>
+
+                    <input
+                        type="number"
+                        name="days"
+                        class="form-control"
+                        min="1"
+                        max="30"
+                    >
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Budget
+                    </label>
+
+                    <select class="form-select" name="budget">
+                        <option>Budget</option>
+                        <option>Moderate</option>
+                        <option>Luxury</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <label class="form-label fw-semibold">
+                        Travelers
+                    </label>
+
+                    <select class="form-select" name="travelers">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4+</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+           <div class="mb-4">
+
+    <label class="form-label fw-semibold mb-3">
+        Choose Your Interests
+    </label>
+
+    <div class="interest-grid">
+
+       <label class="interest-chip">
+    <input type="checkbox" name="interests" value="Adventure">
+    <i class="fa-solid fa-mountain"></i>
+    Adventure
+</label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Nature">
+            <i class="fa-solid fa-leaf"></i>
+            Nature
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Food">
+            <i class="fa-solid fa-utensils"></i>
+            Food
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="History">
+            <i class="fa-solid fa-landmark"></i>
+            History
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Photography">
+            <i class="fa-solid fa-camera"></i>
+            Photography
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Shopping">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Shopping
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Nightlife">
+            <i class="fa-solid fa-martini-glass"></i>
+            Nightlife
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Camping">
+            <i class="fa-solid fa-campground"></i>
+            Camping
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Beach">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            Beaches
+        </label>
+
+        <label class="interest-chip">
+            <input type="checkbox" name="interests" value="Luxury">
+            <i class="fa-solid fa-gem"></i>
+            Luxury
+        </label>
+
+    </div>
+
+</div>
+
+<div class="mb-4">
+
+    <label class="form-label fw-semibold">
+        Additional Preferences
+    </label>
+
+    <textarea
+        class="form-control"
+        rows="3"
+        placeholder="Anything specific you'd like AI to know?"
+    ></textarea>
+
+</div>
+            <div class="text-center">
+
+                <button
+class="btn btn-danger btn-lg generate-btn">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+Generate My AI Itinerary
+
+                </button>
+                <span class="ai-badge">
+    ✨ Powered by Gemini AI
+</span>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,907 @@
+/* ==========================
+   LISTING DETAILS PAGE
+========================== */
+
+/* Header */
+
+.listing-header h2{
+    font-weight:700;
+    color:#222;
+}
+
+.listing-header i{
+    color:#ff385c;
+    margin-right:6px;
+}
+
+.listing-header .badge{
+    font-size:0.9rem;
+}
+
+/* Property Image */
+
+.property-image-wrapper{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.property-image{
+    width:100%;
+    height:520px;
+    object-fit:cover;
+    border-radius:18px;
+    transition:.3s;
+}
+
+.property-image:hover{
+    transform:scale(1.02);
+}
+
+/* Property Summary */
+
+.property-summary{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.summary-card{
+    flex:1;
+    min-width:160px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    padding:18px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.summary-card i{
+    font-size:22px;
+    color:#ff385c;
+}
+
+.summary-card span{
+    font-weight:600;
+}
+
+/* Description */
+
+.description-section{
+    margin-top:40px;
+}
+
+.description-section h4{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.description-section p{
+    line-height:1.8;
+    color:#555;
+}
+
+/* ==========================
+   BOOKING CARD
+========================== */
+
+.show-booking-card{
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    position:sticky;
+    top:90px;
+}
+
+.price-section{
+    display:flex;
+    align-items:end;
+    gap:8px;
+}
+
+#nightPrice{
+    font-size:2rem;
+    font-weight:700;
+}
+
+#nightText{
+    color:#666;
+    margin-bottom:5px;
+}
+
+.rating-text{
+    color:#666;
+    margin:15px 0;
+}
+
+/* Check-in & Check-out */
+
+.booking-inputs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.booking-inputs label{
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.booking-inputs input{
+    border-radius:10px;
+}
+
+.form-select{
+    border-radius:10px;
+}
+
+.show-booking-card .btn-danger{
+    border-radius:12px;
+    padding:12px;
+    font-weight:600;
+}
+
+/* Price Breakdown */
+
+.price-breakdown{
+    margin-top:15px;
+}
+
+.price-breakdown div{
+    font-size:15px;
+}
+
+.price-breakdown hr{
+    margin:15px 0;
+}
+
+.charge-text{
+    color:#777;
+    text-align:center;
+    margin-top:20px;
+}
+
+/* Unavailable Dates */
+
+.list-group-item{
+    border-radius:10px !important;
+    margin-bottom:10px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+    .property-image{
+        height:350px;
+    }
+
+    .show-booking-card{
+        position:static;
+        margin-top:40px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .booking-inputs{
+        grid-template-columns:1fr;
+    }
+
+    .property-summary{
+        flex-direction:column;
+    }
+
+    .property-image{
+        height:280px;
+    }
+
+}
+/* ==========================
+   REVIEWS
+========================== */
+
+.review-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 8px 24px rgba(0,0,0,.08);
+    transition:.25s ease;
+    border:1px solid #eee;
+}
+
+.review-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(0,0,0,.12);
+}
+
+.review-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.review-user{
+    font-weight:700;
+    color:#222;
+    margin:0;
+}
+
+.review-date{
+    color:#777;
+    font-size:.9rem;
+}
+
+.review-comment{
+    color:#555;
+    line-height:1.7;
+    margin:18px 0;
+}
+
+.review-card .starability-result{
+    margin:0;
+}
+
+.review-card form{
+    margin-top:15px;
+}
+
+@media(max-width:768px){
+
+    .review-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+/* WEATHER */
+
+.weather-card{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+.weather-header{
+    padding:20px 30px;
+    text-align:center;
+    transition:all .5s ease;
+}
+.weather-content{
+    padding:30px;
+}
+
+.weather-main{
+    text-align:center;
+}
+
+.weather-icon{
+    width:130px;
+    height:130px;
+}
+
+.weather-temp{
+    font-size:3.8rem;
+    font-weight:700;
+    margin:0;
+    color:#222;
+}
+
+.weather-condition{
+    font-size:1.2rem;
+    color:#666;
+    margin-top:.3rem;
+}
+
+.weather-location{
+    color:#888;
+    margin-bottom:2rem;
+}
+
+.weather-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.weather-box{
+    background:#f8f9fa;
+    border-radius:16px;
+    padding:22px;
+    text-align:center;
+    transition:.3s;
+}
+
+.weather-box:hover{
+    transform:translateY(-4px);
+}
+
+.weather-box i{
+    font-size:1.5rem;
+    color:#fe424d;
+    margin-bottom:12px;
+}
+
+.weather-box span{
+    display:block;
+    color:#777;
+    font-size:.95rem;
+}
+
+.weather-box strong{
+    display:block;
+    margin-top:8px;
+    font-size:1.2rem;
+}
+
+@media(max-width:768px){
+
+.weather-stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.weather-temp{
+
+font-size:3rem;
+
+}
+
+.weather-icon{
+
+width:100px;
+height:100px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.weather-stats{
+
+grid-template-columns:1fr;
+
+}
+
+}
+.travel-tip{
+    margin-top:30px;
+    background:#fff6e6;
+    border-left:5px solid #f4b400;
+    padding:18px 22px;
+    border-radius:12px;
+}
+
+.travel-tip h5{
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.travel-tip p{
+    margin:0;
+    color:#555;
+    font-size:1rem;
+    line-height:1.6;
+}
+/* FORECAST */
+
+.forecast-section{
+
+margin-top:35px;
+
+}
+
+.forecast-section h4{
+
+margin-bottom:20px;
+font-weight:600;
+
+}
+
+.forecast-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+
+}
+
+.forecast-card{
+
+background:#f8f9fa;
+border-radius:18px;
+padding:20px;
+text-align:center;
+transition:.3s;
+
+}
+
+.forecast-card:hover{
+
+transform:translateY(-5px);
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.forecast-day{
+
+font-size:1rem;
+font-weight:600;
+margin-bottom:10px;
+
+}
+
+.forecast-card img{
+
+width:70px;
+
+}
+
+.forecast-card h3{
+
+margin:5px 0;
+font-size:1.7rem;
+
+}
+
+.forecast-card p:last-child{
+
+color:#666;
+font-size:.95rem;
+
+}
+
+@media(max-width:768px){
+
+.forecast-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+.travel-assistant{
+    margin-top:35px;
+}
+
+.assistant-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.assistant-box{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:18px;
+}
+
+.assistant-box h5{
+    margin-bottom:15px;
+    color:#fe424d;
+}
+
+.assistant-box ul{
+    padding-left:18px;
+    margin:0;
+}
+
+.assistant-box li{
+    margin-bottom:10px;
+}
+
+@media(max-width:768px){
+    .assistant-grid{
+        grid-template-columns:1fr;
+    }
+}
+/* Travel Score */
+
+.travel-score{
+    margin:30px 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+}
+
+.score-circle{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#fe424d;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.3rem;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(254,66,77,.25);
+}
+
+.score-info h4{
+    margin:0;
+    font-weight:700;
+}
+
+.score-info span{
+    display:inline-block;
+    margin-top:8px;
+    padding:6px 14px;
+    border-radius:30px;
+    font-weight:600;
+    color:white;
+}
+
+.excellent{
+    background:#28a745;
+}
+
+.good{
+    background:#17a2b8;
+}
+
+.moderate{
+    background:#ffc107;
+    color:#222 !important;
+}
+
+.poor{
+    background:#dc3545;
+}
+/* ==========================
+   Travel Score
+========================== */
+
+.travel-score{
+    margin:30px 0;
+    padding:25px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.score-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.score-circle{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#fe424d,#ff7a59);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.4rem;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.score-header h4{
+    margin:0;
+    font-weight:700;
+}
+
+.status{
+    display:inline-block;
+    margin-top:10px;
+    padding:6px 16px;
+    border-radius:50px;
+    font-size:.9rem;
+    font-weight:600;
+}
+
+.status.excellent{
+    background:#d4edda;
+    color:#155724;
+}
+
+.status.good{
+    background:#d1ecf1;
+    color:#0c5460;
+}
+
+.status.moderate{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.status.poor{
+    background:#f8d7da;
+    color:#721c24;
+}
+
+.score-breakdown{
+    margin-top:25px;
+}
+
+.score-breakdown h6{
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.score-breakdown ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.score-breakdown li{
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+    font-size:.95rem;
+}
+
+.score-breakdown li:last-child{
+    border-bottom:none;
+}
+
+.score-breakdown li.positive{
+    color:#198754;
+}
+
+.score-breakdown li.negative{
+    color:#dc3545;
+}
+/* ---------- Weather Themes ---------- */
+
+.weather-header.sunny{
+
+background:linear-gradient(135deg,#FFD54F,#FFB300);
+color:white;
+
+}
+
+.weather-header.cloudy{
+
+background:linear-gradient(135deg,#90A4AE,#607D8B);
+color:white;
+
+}
+
+.weather-header.rainy{
+
+background:linear-gradient(135deg,#4FC3F7,#1565C0);
+color:white;
+
+}
+
+.weather-header.snowy{
+
+background:linear-gradient(135deg,#E3F2FD,#90CAF9);
+color:#222;
+
+}
+
+.weather-header.storm{
+
+background:linear-gradient(135deg,#424242,#212121);
+color:white;
+
+}
+
+.weather-header.default{
+
+background:linear-gradient(135deg,#f8f9fa,#e9ecef);
+
+}
+.weather-header h1,
+.weather-header h2,
+.weather-header h3,
+.weather-header h4,
+.weather-header h5,
+.weather-header p,
+.weather-header span,
+.weather-header i{
+    color:inherit;
+}
+/*=========================
+Nearby Explorer
+==========================*/
+
+.nearby-section{
+margin-top:3rem;
+}
+
+.accordion-item{
+border:none;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.accordion-button{
+font-weight:700;
+font-size:1.05rem;
+padding:1rem 1.3rem;
+background:white;
+}
+
+.accordion-button:not(.collapsed){
+background:#fe424d;
+color:white;
+}
+
+.accordion-button:focus{
+box-shadow:none;
+}
+
+.place-card{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+.place-card:last-child{
+
+border-bottom:none;
+
+}
+
+.place-info h6{
+
+font-weight:700;
+
+margin-bottom:4px;
+
+}
+
+.place-info p{
+
+margin:0;
+
+font-size:.9rem;
+
+color:#777;
+
+}
+
+.distance{
+
+background:#fe424d;
+
+color:white;
+
+padding:6px 12px;
+
+border-radius:50px;
+
+font-size:.8rem;
+
+font-weight:600;
+
+}
+/* ================= AI CHAT ================= */
+
+.ai-chat-card{
+    max-width: 850px;
+    margin: 60px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.chat-messages{
+
+    height:380px;
+
+    overflow-y:auto;
+
+    background:#f8f9fa;
+
+    padding:25px;
+
+}
+
+.user-message{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:15px;
+}
+
+.ai-message{
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom:15px;
+}
+
+.bubble{
+
+    max-width:72%;
+
+    padding:14px 18px;
+
+    line-height:1.7;
+
+    font-size:.96rem;
+
+}
+
+.user-bubble{
+
+    background:#ff385c;
+
+    color:white;
+
+    border-radius:18px;
+
+    border-bottom-right-radius:6px;
+
+}
+.input-group{
+
+    padding:18px;
+
+    background:white;
+
+    border-top:1px solid #eee;
+
+}
+
+.ai-bubble{
+
+    background:white;
+
+    border-radius:18px;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+}
+
+.error-bubble{
+    background:#ffe5e5;
+}
+
+#aiQuestion{
+
+    height:52px;
+
+    border-radius:30px 0 0 30px;
+
+    padding-left:20px;
+
+}
+
+#askAIBtn{
+
+    width:120px;
+
+    border-radius:0 30px 30px 0;
+
+    background:#ff385c;
+
+    border:none;
+
+    font-weight:600;
+
+}
+.ai-header{
+    background:#212529;
+    color:white;
+    padding:20px 25px;
+}
+
+.ai-header small{
+    opacity:.75;
+}

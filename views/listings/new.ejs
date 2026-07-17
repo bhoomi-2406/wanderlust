@@ -1,0 +1,309 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class = "col-6 offset-2">
+<body>
+</br>
+    <h3>Create a new listing</h3>
+</br>
+    <form method="POST" action="/listings"  enctype="multipart/form-data" novalidate class = "needs-validation">
+        
+        <div class = "mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input 
+            name="listing[title]" 
+            placeholder="Enter title" 
+            type="text" 
+            class="form-control" 
+            required
+            />
+            <div class="valid-feedback">
+      Looks good!
+    </div>
+        </div>
+
+        <div>
+            <label for="description" class="form-label">description</label>
+            <textarea 
+            name="listing[description]" 
+            class="form-control"
+            required
+            ></textarea>
+            <div class="invalid-feedback">
+      Please enter a short description
+    </div>
+        </div>
+
+        <div>
+            <label for="image" class="form-label">Image link</label>
+            <input
+    type="text"
+    name="listing[image][url]"
+    class="form-control"
+    placeholder="Image URL">
+        </div>
+
+<div>
+            <label for="image" class="form-label">Upload Listing Image</label>
+            <input
+    type="file"
+    name="listing[image]"
+    class="form-control"
+    required>
+        </div>
+
+<!-- Price + Property Details -->
+<div class="row">
+
+    <div class="col-md-3 mb-3">
+        <label for="price" class="form-label">Price (per night)</label>
+        <input
+            type="number"
+            name="listing[price]"
+            id="price"
+            placeholder="Enter price"
+            class="form-control"
+            required
+        >
+        <div class="invalid-feedback">
+            Please enter price.
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <label for="maxGuests" class="form-label">Maximum Guests</label>
+        <input
+            type="number"
+            class="form-control"
+            id="maxGuests"
+            name="listing[maxGuests]"
+            min="1"
+            value="4"
+            required
+        >
+    </div>
+    <!-- Amenities -->
+<div class="mb-4">
+    <label class="form-label fw-bold">Amenities</label>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="WiFi"
+                       id="wifi">
+                <label class="form-check-label" for="wifi">
+                    WiFi
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Kitchen"
+                       id="kitchen">
+                <label class="form-check-label" for="kitchen">
+                    Kitchen
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Parking"
+                       id="parking">
+                <label class="form-check-label" for="parking">
+                    Parking
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Pool"
+                       id="pool">
+                <label class="form-check-label" for="pool">
+                    Pool
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Air Conditioning"
+                       id="ac">
+                <label class="form-check-label" for="ac">
+                    Air Conditioning
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Breakfast"
+                       id="breakfast">
+                <label class="form-check-label" for="breakfast">
+                    Breakfast
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Fireplace"
+                       id="fireplace">
+                <label class="form-check-label" for="fireplace">
+                    Fireplace
+                </label>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       name="listing[amenities][]"
+                       value="Pet Friendly"
+                       id="pet">
+                <label class="form-check-label" for="pet">
+                    Pet Friendly
+                </label>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Featured Listing -->
+<div class="form-check mb-4">
+    <input
+        class="form-check-input"
+        type="checkbox"
+        name="listing[featured]"
+        value="true"
+        id="featured"
+    >
+
+    <label class="form-check-label fw-bold" for="featured">
+        Mark as Featured Listing
+    </label>
+</div>
+
+    <div class="col-md-3 mb-3">
+        <label for="bedrooms" class="form-label">Bedrooms</label>
+        <input
+            type="number"
+            class="form-control"
+            id="bedrooms"
+            name="listing[bedrooms]"
+            min="1"
+            value="1"
+            required
+        >
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <label for="bathrooms" class="form-label">Bathrooms</label>
+        <input
+            type="number"
+            class="form-control"
+            id="bathrooms"
+            name="listing[bathrooms]"
+            min="1"
+            value="1"
+            required
+        >
+    </div>
+
+</div>
+
+<!-- Country & Location -->
+<div class="row">
+
+    <div class="col-md-6 mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input
+            name="listing[country]"
+            id="country"
+            placeholder="Enter country"
+            type="text"
+            class="form-control"
+            required
+        >
+        <div class="invalid-feedback">
+            Please enter country name.
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+            name="listing[location]"
+            id="location"
+            placeholder="Enter location"
+            type="text"
+            class="form-control"
+            required
+        >
+        <div class="invalid-feedback">
+            Please enter location.
+        </div>
+    </div>
+
+</div>
+
+<!-- Category -->
+<div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+
+    <select
+        name="listing[category]"
+        id="category"
+        class="form-select"
+        required
+    >
+        <option value="" selected disabled>Select a category</option>
+
+        <option value="Trending">Trending</option>
+        <option value="Iconic Cities">Iconic Cities</option>
+        <option value="Mountains">Mountains</option>
+        <option value="Castles">Castles</option>
+        <option value="Arctic">Arctic</option>
+        <option value="Camping">Camping</option>
+        <option value="Farms">Farms</option>
+        <option value="Amazing Pools">Amazing Pools</option>
+        <option value="Beach">Beach</option>
+        <option value="Forest">Forest</option>
+        <option value="Historic">Historic</option>
+    </select>
+
+    <div class="invalid-feedback">
+        Please select a category.
+    </div>
+</div>
+        <button class = "btn btn-dark">Add</button>
+    </form>
+</body>
+</div>
+</div>
+

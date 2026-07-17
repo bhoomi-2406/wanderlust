@@ -1,0 +1,257 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.container{
+    flex:1;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+.fa-house{
+    color:  red !important;
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.nav-link{
+    color: black !important;
+}
+
+.f-info-links a{
+    text-decoration: none;
+color: black;
+}
+
+.f-info-links a:hover{
+    text-decoration:underline;
+
+}
+
+.f-info-links ,.f-info-socials , .f-info-brand {
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color:rgb(218, 218, 218);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: space-evenly;
+}
+.listing-card{
+    border:none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    width:100% !important;
+    height:240px !important;
+    object-fit:cover !important;
+    border-radius:1rem 1rem 0 0 !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p{
+font-weight: 400;
+}
+
+.listing-links{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+.edit-btn{
+    background-color: red !important;
+    border:none !important;
+}
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+#map {
+    height: 250px;
+    width: 600px;
+    margin: 20px auto;
+    border-radius: 12px;
+}
+.wishlist-container{
+    position: relative;
+}
+
+.wishlist-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(255,255,255,0.9);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:1.3rem;
+
+    transition:0.25s;
+}
+
+.wishlist-btn:hover{
+    transform:scale(1.1);
+}
+
+.wishlist-btn i{
+    color:#dc3545;
+}
+
+.saved{
+    background:white;
+}
+.list-group-item{
+    border-radius: 10px !important;
+    margin-bottom: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.text-success{
+    font-weight: 500;
+}
+
+.price-breakdown{
+    margin-top:20px;
+    padding-top:10px;
+}
+
+.price-breakdown div{
+    font-size:15px;
+}
+
+.price-breakdown hr{
+    margin:15px 0;
+}
+/* Host Dashboard */
+
+.revenue-card{
+    background: #f3fff6;
+    transition: .25s ease;
+}
+
+.revenue-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+/* AI Trip Planner Button */
+
+.ai-trip-btn{
+    background:#fff;
+    color:#6f42c1;
+    border:2px solid #6f42c1;
+    border-radius:25px;
+    padding:0.55rem 1.2rem;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+    white-space:nowrap;
+    transition:.3s;
+}
+
+.ai-trip-btn:hover{
+    background:#6f42c1;
+    color:#fff;
+    transform:translateY(-2px);
+}
+/* Search Button */
+
+.search-btn{
+    background-color:#fe424d;
+    color:white !important;
+    border:none;
+    border-radius:25px;
+    padding:0.45rem 1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+    font-size:0.95rem;
+    font-weight:500;
+    white-space:nowrap;
+    height:42px;
+}
+
+.search-btn:hover{
+    background-color:#e63946;
+    color:white !important;
+}
+
+.search-btn i{
+    font-size:0.9rem;
+}
+.interest-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.interest-chip{
+    cursor:pointer;
+    border:2px solid #e9ecef;
+    border-radius:30px;
+    padding:10px 18px;
+    transition:.25s;
+    user-select:none;
+    font-weight:500;
+    background:white;
+}
+
+.interest-chip input{
+    display:none;
+}
+
+.interest-chip:hover{
+    border-color:#fe424d;
+    color:#fe424d;
+}
+
+.interest-chip:has(input:checked){
+    background:#fe424d;
+    color:white;
+    border-color:#fe424d;
+}

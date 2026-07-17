@@ -1,0 +1,372 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container py-5">
+
+    <h2 class="mb-3">
+        Host Dashboard
+    </h2>
+
+    <p class="text-muted">
+        Good to see you again,
+        <strong><%= currUser.username %>👋</strong>
+    </p>
+
+    <hr>
+
+    <div class="row g-4 mt-2">
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <h6 class="text-muted">
+                    <i class="fa-solid fa-house fa-sm text-danger me-2"></i>
+                    Total Listings
+                </h6>
+
+                <h2>
+                    <%= listings.length %>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <h6 class="text-muted">
+                     <i class="fa-solid fa-calendar-check text-primary me-2"></i>
+                    Total Bookings
+                </h6>
+
+                <h2>
+                    <%= totalBookings %>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <h6 class="text-muted">
+                     <i class="fa-solid fa-indian-rupee-sign text-success me-2"></i>
+                    Total Revenue
+                </h6>
+
+                <h2>
+                    ₹<%= totalRevenue.toLocaleString("en-IN") %>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+
+        <div class="card shadow-sm border-success h-100 revenue-card">
+
+            <div class="card-body">
+
+                <h6 class="text-muted">
+                     <i class="fa-solid fa-star text-warning me-2"></i>
+                    Average Rating
+                </h6>
+
+                <h2>
+                    ⭐ <%= averageRating %>
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<hr class="my-5">
+
+<h4 class="mb-4">
+    Revenue Analytics
+</h4>
+
+<div class="card shadow-sm border-0 mb-5">
+
+    <div class="card-body">
+
+        <canvas id="revenueChart" height="100"></canvas>
+
+    </div>
+
+</div>
+
+<script>
+    const monthNames = <%- JSON.stringify(monthNames) %>;
+    const monthlyRevenue = <%- JSON.stringify(monthlyRevenue) %>;
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/dashboard.js"></script>
+<hr class="my-5">
+
+<h4 class="mb-4">
+    Top Performing Listings
+</h4>
+
+<div class="row g-4 mb-5">
+
+    <div class="col-lg-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <small class="text-muted">
+                    🏆 Highest Revenue
+                </small>
+
+                <h5 class="mt-3">
+                    <%= highestRevenueListing.title %>
+                </h5>
+
+                <h4 class="text-success mt-3">
+                    ₹<%= highestRevenueListing.revenue.toLocaleString("en-IN") %>
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <small class="text-muted">
+                    🔥 Most Booked
+                </small>
+
+                <h5 class="mt-3">
+                    <%= mostBookedListing.title %>
+                </h5>
+
+                <h4 class="text-primary mt-3">
+                    <%= mostBookedListing.bookings %> Bookings
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <small class="text-muted">
+                    ⭐ Highest Rated
+                </small>
+
+                <h5 class="mt-3">
+                    <%= highestRatedListing.title %>
+                </h5>
+
+                <h4 class="text-warning mt-3">
+                    <%= highestRatedListing.rating.toFixed(1) %> ★
+                </h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<hr class="my-5">
+
+<h4 class="mb-4">
+    Recent Bookings
+</h4>
+
+<% if(bookings.length > 0){ %>
+
+<div class="table-responsive">
+
+    <table class="table table-hover align-middle">
+
+        <thead>
+
+            <tr>
+
+                <th>Guest</th>
+                <th>Listing</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Status</th>
+                <th>Amount</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <% bookings.slice(0,5).forEach(booking => { %>
+
+            <tr>
+
+                <td>
+
+                    <%= booking.user.username %>
+
+                </td>
+
+                <td>
+
+                    <%= booking.listing.title %>
+
+                </td>
+
+                <td>
+
+                    <%= booking.checkIn.toLocaleDateString("en-IN") %>
+
+                </td>
+
+                <td>
+
+                    <%= booking.checkOut.toLocaleDateString("en-IN") %>
+
+                </td>
+
+                <td>
+
+                    <span class="badge bg-success">
+
+                        <%= booking.status %>
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    ₹<%= booking.totalPrice.toLocaleString("en-IN") %>
+
+                </td>
+
+            </tr>
+
+            <% }) %>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<% } else { %>
+
+<p class="text-muted">
+
+    No bookings found.
+
+</p>
+
+<% } %>
+<hr class="my-5">
+
+<h4 class="mb-4">
+    Recent Reviews
+</h4>
+
+<% if(recentReviews.length > 0){ %>
+
+<div class="row g-4">
+
+    <% recentReviews.forEach(review => { %>
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm border-0 h-100">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between align-items-start mb-2">
+
+                    <div>
+
+                        <h6 class="mb-1">
+
+                            @<%= review.author.username %>
+
+                        </h6>
+
+                        <small class="text-muted">
+
+                            <%= review.createdAt.toLocaleDateString("en-IN", {
+                                day: "numeric",
+                                month: "short",
+                                year: "numeric"
+                            }) %>
+
+                        </small>
+
+                    </div>
+
+                    <span class="badge bg-warning text-dark">
+
+                        ⭐ <%= review.rating %>/5
+
+                    </span>
+
+                </div>
+
+                <p class="mb-0">
+
+                    <%= review.comment %>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <% }) %>
+
+</div>
+
+<% } else { %>
+
+<p class="text-muted">
+
+    No reviews yet.
+
+</p>
+
+<% } %>
+</div>
