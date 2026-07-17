@@ -16,7 +16,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
 const MONGO_URL =
-    process.env.MONGO_URL || "mongodb://127.0.0.1:27017/wanderlust";
+    process.env.ATLASDB_URL // || "mongodb://127.0.0.1:27017/wanderlust";
 
 const  listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
