@@ -1,14 +1,19 @@
 {
-  "name": "major-project",
+ "name": "wanderlust",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node app.js",
+  "dev": "nodemon app.js",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
-  "author": "",
+  "author": "Bhoomi Srivastava",
   "license": "ISC",
-  "description": "",
+ "description": "AI-powered travel and accommodation platform built with Node.js, Express, MongoDB and Gemini AI",
+ "engines": {
+  "node": ">=20"
+},
   "dependencies": {
     "@google/genai": "^2.11.0",
     "axios": "^1.18.1",
