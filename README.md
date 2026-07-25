@@ -60,7 +60,7 @@ https://wanderlust-kxk4.onrender.com/listings
 
 ## 📖 My Booking
 
-![Booking](screenshots/my-booking.png)
+![Booking](screenshots/my-bookings.png)
 
 ---
 
