@@ -9,9 +9,68 @@ The goal of the project was not only to recreate a booking platform but also to 
 https://wanderlust-kxk4.onrender.com/listings
 
 ---
-## 📸 Project Preview
+# 📸 Screenshots
+
+## 🏠 Home Page
 
 ![Home Page](screenshots/home.png)
+
+## 🏡 Listing Details
+
+![Listing Details](screenshots/listing-top.png)
+
+## 🗺️ Listing features and map
+
+![Listing-features.png](screenshots/listing-features.png)
+
+
+## 📍 Nearby Explorer
+
+![Nearby Explorer](screenshots/nearby-Explorer.png)
+
+---
+
+## 🌦️ Current Weather
+
+![Current Weather](screenshots/current-Weather.png)
+
+
+---
+
+## 🤖 Smart Travel Assistant
+
+![Smart Travel Assistant](screenshots/smart-travel-assistant.png)
+
+---
+
+## ✨ AI Travel Assistant
+
+![AI Travel Assistant](screenshots/ai-travel-assistant.png)
+
+---
+### Generated Itinerary (Part 1)
+
+![Itinerary 1](screenshots/itinerary-1.png)
+
+### Generated Itinerary (Part 2)
+
+![Itinerary 2](screenshots/itinerary-2.png)
+
+---
+
+## 📖 My Booking
+
+![Booking](screenshots/my-booking.png)
+
+---
+
+## 📊 Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+## 📊 Dashboard
+
+![Dashboard](screenshots/dashboard-2.png)
 
 ## Features
 
