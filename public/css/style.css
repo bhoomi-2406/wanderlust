@@ -326,30 +326,39 @@ font-weight: 400;
 }
 
 #filters{
-    display:grid;
+    display:grid !important;
     grid-template-columns:repeat(4,1fr);
-    gap:12px;
+    gap:10px;
     margin:18px 0;
 }
 
 .filter{
-
-    width:100%;
+    width:100% !important;
     aspect-ratio:1/1;
 
-    min-height:62px;
+    display:flex !important;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    margin:0 !important;
+
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+    opacity:1;
 }
 
 .filter i{
     font-size:1rem;
+    margin-bottom:4px;
 }
 
 .filter p{
-
-    font-size:.58rem;
-
+    margin:0;
+    font-size:.62rem;
     line-height:1;
-
-    margin-top:3px;
 }
+
 }
