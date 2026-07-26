@@ -3,17 +3,27 @@
 <body>
     <style>
  #filters{
-    display: flex;
-    flex-wrap: wrap;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
 }
-
 .filter{
-    text-align: center;
-    margin-right: 2rem;
-    margin-top: 2rem;
-    opacity: 0.7;
-    text-decoration: none;
-    color: black;
+
+    width:100%;
+    aspect-ratio:1/1;
+
+    border-radius:14px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+    margin:0;
 }
 
 .filter:hover{
@@ -21,9 +31,15 @@
     cursor: pointer;
     color: black;
 }
+.filter i{
+    font-size:1rem;
+    margin-bottom:4px;
+}
 
 .filter p{
-    font-size: 0.8rem;
+    margin:0;
+    font-size:.62rem;
+    line-height:1;
 }
 .listing-img-container{
     position: relative;
