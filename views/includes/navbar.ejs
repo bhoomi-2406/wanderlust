@@ -14,13 +14,15 @@
         display: inline;
     }
     .search-inp{
-        border-radius: 25px;
-        padding: 0.5rem 3rem 0.5rem 3 rem;
-    }
-    .price-filter{
-width: 180px;
-    }
-
+    width:180px;
+    min-width:180px;
+    border-radius:25px;
+    padding:0.45rem 0.9rem;
+}
+   .price-filter{
+    width:120px;
+    min-width:120px;
+}
 </style>
 
 
@@ -28,52 +30,49 @@ width: 180px;
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="/">
-    <i class="fa-solid fa-house"></i>
-    <span class="brand-text ms-2">Wanderlust</span>
-</a>
+        <a class="navbar-brand" href="/"> <i class="fa-solid fa-house"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse mobile-menu" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 
                 <a class="nav-link" href="/listings">Explore</a>
             </div>
-            <div class="navbar-nav ms-auto">
+            <form class="d-none d-md-flex align-items-center flex-nowrap ms-auto"
+    role="search"
+    action="/listings"
+    method="GET"
+>
 
-    <form class="d-flex align-items-center flex-wrap search-form" role="search" action="/listings" method="GET">
+    <input
+        class="form-control me-2 search-inp"
+        type="search"
+        placeholder="Search destinations"
+        aria-label="Search"
+        name="q"
+        value="<%= searchQuery %>"
+    />
 
-        <input
-            class="form-control me-2 search-inp"
-            type="search"
-            placeholder="Search destinations"
-            aria-label="Search"
-            name="q"
-            value="<%= searchQuery %>"
-        />
+    <select class="form-select me-2 price-filter" name="price">
+        <option value="">All Prices</option>
+        <option value="0-2000">Under ₹2,000</option>
+        <option value="2000-5000">₹2,000 - ₹5,000</option>
+        <option value="5000-10000">₹5,000 - ₹10,000</option>
+        <option value="10000+">Above ₹10,000</option>
+    </select>
 
-        <select class="form-select me-2 price-filter" name="price">
-            <option value="">All Prices</option>
-            <option value="0-2000">Under ₹2,000</option>
-            <option value="2000-5000">₹2,000 - ₹5,000</option>
-            <option value="5000-10000">₹5,000 - ₹10,000</option>
-            <option value="10000+">Above ₹10,000</option>
-        </select>
+    <button class="btn search-btn me-2" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        Search
+    </button>
 
-        <button class="btn search-btn me-2" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            Search
-        </button>
+   <a href="/trip-planner" class="btn ai-trip-btn ms-2">
+        <i class="fa-solid fa-robot"></i>
+        Plan My Trip
+    </a>
 
-        <a href="/trip-planner" class="btn ai-trip-btn">
-            <i class="fa-solid fa-robot"></i>
-            Plan My Trip
-        </a>
-
-    </form>
-
-</div>
+</form>
 
             <div class="navbar-nav ms-auto ">
                  <a class="nav-link" href="/listings/new">Airbnb your home</a>
@@ -100,3 +99,40 @@ width: 180px;
         </div>
     </div>
 </nav>
+<div class="mobile-search-wrapper d-md-none">
+
+    <form action="/listings" method="GET">
+
+        <input
+            class="form-control search-inp mb-3"
+            type="search"
+            placeholder="Search destinations"
+            name="q"
+            value="<%= searchQuery %>"
+        >
+
+        <div class="d-flex gap-2 mb-3">
+
+            <select class="form-select price-filter" name="price">
+                <option value="">All Prices</option>
+                <option value="0-2000">Under ₹2,000</option>
+                <option value="2000-5000">₹2,000 - ₹5,000</option>
+                <option value="5000-10000">₹5,000 - ₹10,000</option>
+                <option value="10000+">Above ₹10,000</option>
+            </select>
+
+            <button class="btn search-btn flex-grow-1">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search
+            </button>
+
+        </div>
+
+    </form>
+
+    <a href="/trip-planner" class="btn ai-trip-btn w-100">
+        <i class="fa-solid fa-robot"></i>
+        Plan My Trip
+    </a>
+
+</div>

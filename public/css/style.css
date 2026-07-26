@@ -13,6 +13,7 @@ min-height: 100vh;
     height: 5rem;
     background-color: white;
 }
+
 .fa-house{
     color:  red !important;
     font-size: 2rem;
@@ -190,10 +191,11 @@ font-weight: 400;
     color:#6f42c1;
     border:2px solid #6f42c1;
     border-radius:25px;
-    padding:0.55rem 1.2rem;
+    padding:0.45rem 0.8rem;
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:4px;
+    font-size:0.9rem;
     font-weight:600;
     white-space:nowrap;
     transition:.3s;
@@ -264,7 +266,8 @@ font-weight: 400;
 }
 
 .price-filter{
-    width:100%;
+    width:150px;
+    min-width:150px;
 }
 
 .search-btn{
@@ -307,38 +310,58 @@ font-weight: 400;
 }
 #filters{
     justify-content:center;
-    gap:16px;
-    margin-top:20px;
+    gap:12px;
+    margin:18px 0;
 }
 
 .filter{
-    width:100px;
-    height:100px;
+    width:82px;
+    height:82px;
 
     margin:0;
 
     background:#fff;
 
-    border-radius:18px;
+    border-radius:16px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 
     opacity:1;
 }
 
 .filter i{
-    font-size:1.6rem;
-    margin-bottom:10px;
+    font-size:1.25rem;
+    margin-bottom:6px;
 }
 
 .filter p{
     margin:0;
-    font-size:.85rem;
+    font-size:.72rem;
+    line-height:1.1;
+}
+.mobile-search-wrapper{
+    padding:16px;
+}
+
+.mobile-search-wrapper .search-inp{
+    width:100%;
+}
+
+.mobile-search-wrapper .price-filter{
+    width:45%;
+}
+
+.mobile-search-wrapper .search-btn{
+    width:55%;
+}
+
+.mobile-search-wrapper .ai-trip-btn{
+    margin-top:8px;
 }
 
 }
