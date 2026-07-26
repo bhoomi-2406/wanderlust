@@ -3,43 +3,34 @@
 <body>
     <style>
  #filters{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-}
-.filter{
-
-    width:100%;
-    aspect-ratio:1/1;
-
-    border-radius:14px;
-
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    flex-wrap:wrap;
     align-items:center;
+    gap:1.8rem;
+    margin:1rem 0;
+}
 
-    background:#fff;
-
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-
+.filter{
+    text-align:center;
+    opacity:.7;
+    text-decoration:none;
+    color:#222;
     margin:0;
 }
 
 .filter:hover{
-    opacity: 1;
-    cursor: pointer;
-    color: black;
+    opacity:1;
+    color:#222;
 }
+
 .filter i{
-    font-size:1rem;
+    font-size:1.3rem;
     margin-bottom:4px;
 }
 
 .filter p{
     margin:0;
-    font-size:.62rem;
-    line-height:1;
+    font-size:.8rem;
 }
 .listing-img-container{
     position: relative;
