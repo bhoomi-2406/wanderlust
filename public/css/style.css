@@ -13,7 +13,10 @@ min-height: 100vh;
     height: 5rem;
     background-color: white;
 }
-
+.navbar-nav .nav-link{
+    padding-left:0.6rem;
+    padding-right:0.6rem;
+}
 .fa-house{
     color:  red !important;
     font-size: 2rem;
@@ -187,27 +190,24 @@ font-weight: 400;
 /* AI Trip Planner Button */
 
 .ai-trip-btn{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-
     background:#fff;
-    color:#2563eb !important;
-
-    border:2px solid #2563eb;
-    border-radius:14px;
-
-    padding:12px;
+    color:#6f42c1;
+    border:2px solid #6f42c1;
+    border-radius:25px;
+    padding:0.45rem 0.8rem;
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:0.9rem;
     font-weight:600;
-
-    transition:.25s;
+    white-space:nowrap;
+    transition:.3s;
 }
 
 .ai-trip-btn:hover{
-    background:#2563eb;
-    color:#fff !important;
+    background:#6f42c1;
+    color:#fff;
+    transform:translateY(-2px);
 }
 /* Search Button */
 
@@ -279,11 +279,24 @@ font-weight: 400;
 
 .ai-trip-btn{
     width:100%;
-    justify-content:center;
     display:flex;
-    border:2px solid #6f42c1;
-    border-radius:25px;
-    padding:10px;
+    justify-content:center;
+    align-items:center;
+
+    margin-top:4px;
+
+    background:#fff;
+    color:#6366f1 !important;
+
+    border:2px solid #c7c5ff;
+    border-radius:18px;
+
+    padding:13px 18px;
+
+    font-weight:600;
+    font-size:1rem;
+
+    box-shadow:none;
 }
 
 .mobile-menu{
@@ -312,55 +325,48 @@ font-weight: 400;
     min-height:48px;
 }
 #filters{
-    justify-content:space-between;
-    gap:8px;
-    margin:14px 0;
+    justify-content:center;
+    gap:12px;
+    margin:18px 0;
+}
+
+#filters{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin:18px 0;
 }
 
 .filter{
-    width:74px;
+
+    width:100%;
     height:74px;
 
     margin:0;
 
-    border-radius:14px;
+    border-radius:16px;
 
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
 
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
+    background:#fff;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    opacity:1;
 }
 
 .filter i{
-    font-size:1.1rem;
+    font-size:1.15rem;
     margin-bottom:5px;
 }
 
 .filter p{
-    font-size:.66rem;
-    line-height:1.1;
     margin:0;
-}
-.mobile-search-wrapper{
-    padding:16px;
-}
-
-.mobile-search-wrapper .search-inp{
-    width:100%;
-}
-
-.mobile-search-wrapper .price-filter{
-    width:45%;
-}
-
-.mobile-search-wrapper .search-btn{
-    width:55%;
-}
-
-.mobile-search-wrapper .ai-trip-btn{
-    margin-top:8px;
+    font-size:.67rem;
+    line-height:1.05;
 }
 
 }
