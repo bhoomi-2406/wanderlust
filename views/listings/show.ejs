@@ -629,13 +629,15 @@ data-bs-parent="#nearbyAccordion">
 
                             <li class="<%= item.type %>">
 
-                                <% if(item.type === "positive"){ %>
-                                    ✅
-                                <% } else { %>
-                                    ⚠
-                                <% } %>
+                                <span class="score-icon">
+    <% if(item.type === "positive"){ %>
+        ✅
+    <% } else { %>
+        ⚠️
+    <% } %>
+</span>
 
-                                <%= item.text %>
+<span><%= item.text %></span>
 
                             </li>
 
