@@ -224,34 +224,45 @@ font-weight: 400;
 .search-btn i{
     font-size:0.9rem;
 }
-.interest-grid{
+/* ===========================
+   MOBILE RESPONSIVE
+=========================== */
+
+@media (max-width:768px){
+
+.navbar{
+    height:auto;
+    padding:10px 0;
+}
+
+.search-form{
+    width:100%;
     display:flex;
-    flex-wrap:wrap;
-    gap:12px;
+    flex-direction:column;
+    align-items:stretch !important;
+    gap:10px;
+    margin:15px 0;
 }
 
-.interest-chip{
-    cursor:pointer;
-    border:2px solid #e9ecef;
-    border-radius:30px;
-    padding:10px 18px;
-    transition:.25s;
-    user-select:none;
-    font-weight:500;
-    background:white;
+.search-inp{
+    width:100%;
 }
 
-.interest-chip input{
-    display:none;
+.price-filter{
+    width:100%;
 }
 
-.interest-chip:hover{
-    border-color:#fe424d;
-    color:#fe424d;
+.search-btn{
+    width:100%;
 }
 
-.interest-chip:has(input:checked){
-    background:#fe424d;
-    color:white;
-    border-color:#fe424d;
+.ai-trip-btn{
+    width:100%;
+    justify-content:center;
+}
+
+.navbar-nav{
+    text-align:center;
+}
+
 }
