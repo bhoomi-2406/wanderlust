@@ -187,28 +187,27 @@ font-weight: 400;
 /* AI Trip Planner Button */
 
 .ai-trip-btn{
-    background:linear-gradient(135deg,#6f42c1,#4f46e5);
-    color:#fff !important;
-    border:none;
-    border-radius:28px;
-    padding:0.7rem 1rem;
+    width:100%;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     gap:8px;
+
+    background:#fff;
+    color:#2563eb !important;
+
+    border:2px solid #2563eb;
+    border-radius:14px;
+
+    padding:12px;
     font-weight:600;
-    transition:.3s ease;
-    box-shadow:0 6px 18px rgba(79,70,229,.25);
+
+    transition:.25s;
 }
 
 .ai-trip-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 10px 24px rgba(79,70,229,.35);
+    background:#2563eb;
     color:#fff !important;
-}
-
-.ai-trip-btn i{
-    font-size:1rem;
 }
 /* Search Button */
 
@@ -313,19 +312,16 @@ font-weight: 400;
     min-height:48px;
 }
 #filters{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin:18px 12px;
+    justify-content:space-between;
+    gap:8px;
+    margin:14px 0;
 }
 
 .filter{
-    width:70px;
-    height:70px;
+    width:74px;
+    height:74px;
 
     margin:0;
-
-    background:#fff;
 
     border-radius:14px;
 
@@ -335,18 +331,16 @@ font-weight: 400;
     align-items:center;
 
     box-shadow:0 3px 10px rgba(0,0,0,.08);
-
-    opacity:1;
 }
 
 .filter i{
     font-size:1.1rem;
-    margin-bottom:4px;
+    margin-bottom:5px;
 }
 
 .filter p{
-    font-size:.65rem;
-    line-height:1;
+    font-size:.66rem;
+    line-height:1.1;
     margin:0;
 }
 .mobile-search-wrapper{
