@@ -280,8 +280,65 @@ font-weight: 400;
     padding:10px;
 }
 
+.mobile-menu{
+    margin-top:15px;
+    padding:15px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
 .navbar-nav{
     text-align:center;
+}
+
+.navbar-nav .nav-link{
+    padding:12px 0;
+    font-size:1rem;
+}
+
+.search-form{
+    margin-top:15px;
+}
+
+.search-btn,
+.ai-trip-btn{
+    min-height:48px;
+}
+#filters{
+    justify-content:center;
+    gap:16px;
+    margin-top:20px;
+}
+
+.filter{
+    width:100px;
+    height:100px;
+
+    margin:0;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    opacity:1;
+}
+
+.filter i{
+    font-size:1.6rem;
+    margin-bottom:10px;
+}
+
+.filter p{
+    margin:0;
+    font-size:.85rem;
 }
 
 }
